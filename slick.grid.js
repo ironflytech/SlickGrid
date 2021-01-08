@@ -4493,10 +4493,12 @@ if (typeof Slick === "undefined") {
             : frozenRowsHeight;
         }
 
-        cell = getCellFromPoint($activeCellOffset.left, Math.ceil($activeCellOffset.top) - rowOffset);
+        if ($activeCellOffset.top !== 0 || $activeCellOffset.left !== 0) {
+          cell = getCellFromPoint($activeCellOffset.left, Math.ceil($activeCellOffset.top) - rowOffset);
 
-        activeRow = cell.row;
-        activeCell = activePosX = activeCell = activePosX = getCellFromNode(activeCellNode);
+          activeRow = cell.row;
+          activeCell = activePosX = activeCell = activePosX = getCellFromNode(activeCellNode);
+        }
 
         $activeCellNode.addClass("active");
         if (rowsCache[activeRow]) {
